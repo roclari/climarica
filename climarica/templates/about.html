@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempo em Maricá</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/about.css">
+    <script type="text/javascript" src="static/js/script.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-nav">
+                    <a href="{% url 'index' %}" class="navbar-brand">Tempo em Maricá</a>
+                    <a href="{% url 'index' %}">INÍCIO</a>
+                    <a href="{% url 'about' %}">SOBRE</a>
+                    <a href="{% url 'news' %}">NOTÍCIAS</a>
+                    <a href="{% url 'reports' %}">BOLETIM</a>
+                    <a href="{% url 'contact' %}">CONTATO</a>
+                </div>
+            </div>
+        </nav>
+        <div class="banner">
+            <div class="container">
+                <h1 class="banner-title">
+                    Sobre o <span>Site</span>
+                </h1>
+                <p class="about-text">
+                    O site surgiu com o intuito de centralizar informações climáticas da cidade de Maricá em um só local,
+                    com base nos dados fornecidos pela Defesa Civil, Centro de Operações de Maricá e o site Climatempo.
+                </p>
+                <h1 class="banner-title">
+                    Sobre a <span>EQUIPE</span>
+                </h1>
+                <p class="about-text">
+                    Larissa Rocha - 202211906
+                </p>
+                <div class="contact-list">
+                    <a href="mailto:larissarocha9@gmail.com" class="cont-btn">
+                        <i class="fa-regular fa-at fa-2x"></i>
+                    </a>
+                    <a href="https://api.whatsapp.com/send?1=pt_BR&phone=5521998526668" class="cont-btn">
+                        <i class="fa-brands fa-whatsapp fa-2x"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/larissa-rocha-6a7061234" class="cont-btn">
+                        <i class="fa-brands fa-linkedin fa-2x"></i>
+                    </a>
+                    <a href="https://github.com/roclari" class="cont-btn">
+                        <i class="fa-brands fa-github fa-2x"></i>
+                    </a>
+                </div>
+
+                <p class="about-text">
+                    Mateus Barreto - 202212170
+                </p>
+                <div class="contact-list">
+                    <a href="mailto:email@gmail.com" class="cont-btn">
+                        <i class="fa-regular fa-at fa-2x"></i>
+                    </a>
+                    <a href="https://api.whatsapp.com/send?1=pt_BR&phone=5521990000000" class="cont-btn">
+                        <i class="fa-brands fa-whatsapp fa-2x"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/user" class="cont-btn">
+                        <i class="fa-brands fa-linkedin fa-2x"></i>
+                    </a>
+                    <a href="https://github.com/user" class="cont-btn">
+                        <i class="fa-brands fa-github fa-2x"></i>
+                    </a>
+                </div>
+
+                <p class="about-text">
+                    Tássia Nascimento - 202212166
+                </p>
+                <div class="contact-list">
+                    <a href="mailto:email@gmail.com" class="cont-btn">
+                        <i class="fa-regular fa-at fa-2x"></i>
+                    </a>
+                    <a href="https://api.whatsapp.com/send?1=pt_BR&phone=5521990000000" class="cont-btn">
+                        <i class="fa-brands fa-whatsapp fa-2x"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/user" class="cont-btn">
+                        <i class="fa-brands fa-linkedin fa-2x"></i>
+                    </a>
+                    <a href="https://github.com/user" class="cont-btn">
+                        <i class="fa-brands fa-github fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<div class="footer">
+    <p>© MARICÁ - 2024 Todos os direitos reservados.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+.about-text-bg {
+    margin-top: -5%;
+    border-radius: 5px;
+}
+
+.about-text {
+    padding: 16px 20px 16px 20px !important;
+    font-size: 20px;
+    text-transform: monospace;
+    font-weight: 300;
+    word-spacing: 2px;
+    max-width: 30% !important;
+    margin: 5% 35% 5% !important;
+    text-align: justify;
+    text-shadow: rgb(77, 75, 75);
+}
+
+.about-text p {
+    text-align: center;
+}
+
+.cont-btn {
+    text-decoration: none;
+    color: ghostwhite;
+    margin: 0 10px 0 0;
+    text-shadow: 3 3 slategrey;
+}
+
+.cont-btn:hover {
+    color: lightblue;
+    transition: 0.5s ease-in;
+}

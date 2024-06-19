@@ -1,0 +1,60 @@
+
+.lists-container {
+    display: inline-flex;
+
+}
+
+.list-container {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    margin: 50px 0 50px 40px;
+    padding: 30px 0 30px 0;
+    width: 30%;
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(31, 25, 27, 0.8));
+    border: solid 3px lightblue;
+    border-radius: 5px;
+    max-width: 600px;
+    position: relative;
+}
+
+ul {
+    list-style-type: none;
+    margin-left: 20px;
+    padding: 0;
+    text-align: left;
+}
+
+ul span {
+    font-size: 30px;
+    margin-left: 35%;
+    text-shadow: 3px 3px darkslategray;
+    transition: 700ms ease;
+    outline: none;
+}
+
+ul span:hover {
+    letter-spacing: 5px;
+}
+
+ul li a {
+    font-family: sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 5px;
+    color: var(--light);
+    text-shadow: 1px 1px gray;
+}
+
+ul li a:hover {
+    color: slategrey;
+}
+
+.artist .album .genre .year {
+    display: list-item;
+}
+
+.searchlist {
+    margin: 5px 0 5px 0;
+}
