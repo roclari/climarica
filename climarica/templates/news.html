@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tempo em Maricá</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="static/css/list.css">
-    <script type="text/javascript" src="static/js/script.js"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
     <header>
@@ -25,6 +26,57 @@
             </div>
         </nav>
     </header>
+
+    <section>
+        <h2>Debugging Information</h2>
+        <p>Notícias em destaque: {{ noticias_destaque|length }}</p>
+        <p>Outras notícias: {{ outras_noticias|length }}</p>
+    </section>
+
+    <section class="content" id="content">
+        <div class="container">
+            <div class="title">
+                <h2>PRINCIPAIS NOTÍCIAS</h2>
+                {% for noticia in noticias_destaque %}
+                <div class="content-item">
+                    <div class="content-img">
+                        <img src="{{ noticia.foto.url }}" alt="{{ noticia.titulo }}">
+                        <span>{{ noticia.resumo }}</span>
+                    </div>
+                    <div class="content-title popup" onclick="infoPopup(this)">
+                        <span class="popuptext" id="infoPopup">
+                            <i>{{ noticia.data_publicacao|date:"l, d de F de Y" }}</i>
+                        </span>
+                        <a href="{% url 'news_details' noticia.id %}">Saiba mais</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="content" id="content">
+        <div class="container">
+            <div class="title">
+                <h2>OUTRAS NOTÍCIAS</h2>
+                {% for noticia in outras_noticias %}
+                <div class="content-item">
+                    <div class="content-img">
+                        <img src="{{ noticia.foto.url }}" alt="{{ noticia.titulo }}">
+                        <span>{{ noticia.resumo }}</span>
+                    </div>
+                    <div class="content-title popup" onclick="infoPopup(this)">
+                        <span class="popuptext" id="infoPopup">
+                            <i>{{ noticia.data_publicacao|date:"l, d de F de Y" }}</i>
+                        </span>
+                        <a href="{% url 'news_details' noticia.id %}">Saiba mais</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
     <div class="footer">
         <p>© MARICÁ - 2024 Todos os direitos reservados.</p>
     </div>

@@ -43,16 +43,12 @@ ul li a {
     font-weight: 600;
     text-decoration: none;
     padding: 5px;
-    color: var(--light);
+    color: red;
     text-shadow: 1px 1px gray;
 }
 
 ul li a:hover {
     color: slategrey;
-}
-
-.artist .album .genre .year {
-    display: list-item;
 }
 
 .searchlist {

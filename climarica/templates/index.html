@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tempo em Maricá</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="static/css/list.css">
-    <script type="text/javascript" src="static/js/script.js"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
     <header>
@@ -31,7 +32,9 @@
                 </h1>
                 <p>INFORMAÇÕES SOBRE O <b style="color: lightblue;">TEMPO</b> E CLIMA EM MARICÁ EM TEMPO REAL</p>
                 <form>
-                    <input type="text" id="searchbar" onkeyup="search()" class="search-input" placeholder="Pesquisar...">
+                    <label for="searchbar">
+                        <input type="text" id="searchbar" onkeyup="search()" class="search-input" placeholder="Pesquisar..." />
+                    </label>
                     <button type="submit" class="search-btn">
                         <i class="fas fa-search"></i>
                     </button>
