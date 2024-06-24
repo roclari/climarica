@@ -202,7 +202,6 @@ header {
     font-weight: 400;
     text-transform: none;
     padding: 10px 0;
-    text-shadow: 1px 1px gray;
 }
 
 /* contents - news */
@@ -328,13 +327,21 @@ header {
 
 .card h3 {
     margin-top: 0;
-    font-size: 1.5em;
-    color: #333;
+    font-size: 30px;
+    color: dimgray;
 }
 
 .card p {
-    color: #666;
+    color: gray;
     margin: 10px 0;
+}
+
+.logo-i {
+    margin-top: 20px;
+    padding: 3px;
+    font-size: 80px;
+    display: inline-flex;
+    color: #4695b4;
 }
 
 .card-link {
