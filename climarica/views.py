@@ -36,3 +36,7 @@ def news_details(request, news_id):
 def reports(request):
     boletins = Boletim.objects.all()
     return render(request, 'reports.html', {'boletins': boletins})
+
+
+def weather(request):
+    return render(request, 'weather.html')
