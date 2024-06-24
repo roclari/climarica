@@ -5,18 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tempo em Maricá</title>
+    <title>CLIMARICÁ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/list.css' %}">
     <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
-    <header>
+    <header style="background-image: url('{% static 'img/bg.png' %}')">
         <nav class="navbar">
             <div class="container">
                 <div class="navbar-nav">
-                    <a href="{% url 'index' %}" class="navbar-brand">Tempo em Maricá</a>
+                    <a href="{% url 'index' %}" class="navbar-brand">CLIMARICÁ</a>
+{#                    <a href="{% url 'index' %}" class="navbar-brand"><img src="static/img/logo.png" alt="{% url 'index' %}" style=""></a>#}
                     <a href="{% url 'index' %}">INÍCIO</a>
                     <a href="{% url 'about' %}">SOBRE</a>
                     <a href="{% url 'news' %}">NOTÍCIAS</a>
@@ -28,9 +29,9 @@
         <div class="banner">
             <div class="container">
                 <h1 class="banner-title">
-                    <span>Tempo</span> em Maricá
+                    <span>CLI</span>MARICÁ
                 </h1>
-                <p>INFORMAÇÕES SOBRE O <b style="color: lightblue;">TEMPO</b> E CLIMA EM MARICÁ EM TEMPO REAL</p>
+                <p>INFORMAÇÕES SOBRE O <b style="color: lightblue;">TEMPO</b> E CLIMA NA CIDADE DE MARICÁ</p>
                 <form>
                     <label for="searchbar">
                         <input type="text" id="searchbar" onkeyup="search()" class="search-input" placeholder="Pesquisar..." />
@@ -41,45 +42,40 @@
                 </form>
             </div>
         </div>
-    </header>
 
-    <section class="content" id="content">
-        <div class="container">
-            <div class="title">
-                <h2>PRINCIPAIS NOTÍCIAS</h2>
-                <div class="content-item">
-                    {% for noticia in noticias_destaque %}
-                    <div class="div-content">
-                        <div class="content-img">
-                            {% if noticia.foto %}
-                                <img src="{{ noticia.foto.url }}" alt="{{ noticia.titulo }}">
-                            {% else %}
-                                <i class="fas fa-regular fa-newspaper"></i>
-                            {% endif %}
-                            <span>{{ noticia.titulo }}</span>
-                            <span class="popuptext" id="infoPopup">
-                                <i>{{ noticia.data_publicacao|date:"l, d de F de Y" }}</i>
-                                <a href="{% url 'news_details' noticia.pk %}" class="content-title popup">Saiba mais</a>
-                            </span>
+        <section class="content" id="content">
+            <div class="container">
+                <div class="title">
+                    <h2>PRINCIPAIS NOTÍCIAS</h2>
+                    <div class="content-item">
+                        {% for noticia in noticias_destaque %}
+                        <div class="div-content">
+                            <div class="content-img">
+                                {% if noticia.foto %}
+                                    <img src="{{ noticia.foto.url }}" alt="{{ noticia.titulo }}">
+                                {% else %}
+                                    <i class="fas fa-regular fa-newspaper"></i>
+                                {% endif %}
+                                <span>{{ noticia.titulo }}</span>
+                                <span class="popuptext" id="infoPopup">
+                                    <i>{{ noticia.data_publicacao|date:"l, d de F de Y" }}</i>
+                                    <a href="{% url 'news_details' noticia.pk %}" class="content-title popup">Saiba mais</a>
+                                </span>
+                            </div>
                         </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
-            </div>
-            <div class="title">
-                <h2>Meteorologia</h2>
-                <p>Confira a previsão do tempo na cidade de Maricá</p>
-                <a href="{% url 'weather' %}">Clique aqui</a>
-            </div>
-        <div class="div-content">
-            <div class="content-item">
-                <div class="content-img">
-                    <span>Título</span>
+            <section class="content" id="content">
+                <div class="title">
+                    <h2>Meteorologia</h2>
+                    <p>Confira a previsão do tempo na cidade de Maricá</p>
+                    <a href="{% url 'weather' %}">Clique aqui</a>
                 </div>
+            </section>
             </div>
-        </div>
-        </div>
     </section>
+    </header>
 
 <div class="footer">
     <p>© MARICÁ - 2024 Todos os direitos reservados.</p>

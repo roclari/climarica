@@ -39,6 +39,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'climarica', 'templates', 'static'), 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'climarica', 'templates', 'static', 'media')
 
+X_FRAME_OPTIONS = 'ALLOW-FROM http://localhost:8000'
 
 TEMPLATES = [
     {

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tempo em Maricá</title>
+    <title>Boletins | CLIMARICÁ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/list.css' %}">
@@ -16,7 +16,7 @@
         <nav class="navbar">
             <div class="container">
                 <div class="navbar-nav">
-                    <a href="{% url 'index' %}" class="navbar-brand">Tempo em Maricá</a>
+                    <a href="{% url 'index' %}" class="navbar-brand">CLIMARICÁ</a>
                     <a href="{% url 'index' %}">INÍCIO</a>
                     <a href="{% url 'about' %}">SOBRE</a>
                     <a href="{% url 'news' %}">NOTÍCIAS</a>
@@ -25,7 +25,38 @@
                 </div>
             </div>
         </nav>
+
+        <section class="content" id="content">
+            <div class="container">
+                <div class="title">
+                    <h2>BOLETIM DE INFORMAÇÕES METEOROLÓGICAS</h2>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <br><label for="boletim">Selecione uma data:</label><br>
+                        <select name="boletim" id="boletim" onchange="this.form.submit()" style="padding-left: 10px;">
+                            <option value="">--- S e l e c i o n e ---</option><br>
+                            {% for boletim in boletins %}
+                                <option value="{{ boletim.id }}">{{ boletim.titulo }}</option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                    {% if selected_boletim %}
+                        <h3>Data selecionada:<br>{{ selected_boletim.titulo }}</h3>
+                        <p>Descrição:<br>{{ selected_boletim.conteudo }}</p>
+                        {% if selected_boletim.pdf %}
+                            <iframe src="{{ selected_boletim.pdf.url }}" width="600" height="780" style="border: none;"></iframe>
+                            <p>Fonte:<br>{{ selected_boletim.fonte }}</p>
+                        {% else %}
+                            <p>Esta data não possui um boletim meteorológico disponível.</p>
+                        {% endif %}
+                    {% else %}
+                        <br><p>Selecione uma data para visualizar o boletim meteorológico.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
     </header>
+
     <div class="footer">
         <p>© MARICÁ - 2024 Todos os direitos reservados.</p>
     </div>

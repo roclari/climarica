@@ -14,7 +14,7 @@ class NoticiaForm(forms.ModelForm):
 class BoletimForm(forms.ModelForm):
     class Meta:
         model = Boletim
-        fields = ['titulo', 'conteudo', 'data_publicacao']
+        fields = ['titulo', 'conteudo', 'data_publicacao', 'fonte']
         widgets = {
             'data_publicacao': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
         }

@@ -11,4 +11,4 @@ class NoticiaAdmin(admin.ModelAdmin):
 @admin.register(Boletim)
 class BoletimAdmin(admin.ModelAdmin):
     list_display = ('titulo', 'data_publicacao')
-    search_fields = ('titulo', 'conteudo')
+    search_fields = ('titulo', 'conteudo',  'data_publicacao', 'pdf', 'fonte')

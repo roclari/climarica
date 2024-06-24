@@ -35,7 +35,15 @@ def news_details(request, news_id):
 
 def reports(request):
     boletins = Boletim.objects.all()
-    return render(request, 'reports.html', {'boletins': boletins})
+    selected_boletim = None
+
+    if request.method == 'POST':
+        boletim_id = request.POST.get('boletim')
+        if boletim_id:
+            selected_boletim = get_object_or_404(Boletim, pk=boletim_id)
+
+    return render(request, 'reports.html', {'boletins': boletins,
+                                            'selected_boletim': selected_boletim})
 
 
 def weather(request):

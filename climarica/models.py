@@ -18,6 +18,8 @@ class Boletim(models.Model):
     titulo = models.CharField(max_length=200, null=True, blank=True)
     conteudo = models.TextField(null=True, blank=True)
     data_publicacao = models.DateTimeField(auto_now_add=True)
+    pdf = models.FileField(upload_to='pdfs/', null=True, blank=True)
+    fonte = models.CharField(max_length=100, default='https://www.marica.rj.gov.br/previsao-do-tempo/', null=True, blank=True)
 
     def __str__(self):
         return self.titulo
