@@ -27,12 +27,6 @@
         </nav>
     </header>
 
-    <section>
-        <h2>Debugging Information</h2>
-        <p>Notícias em destaque: {{ noticias_destaque|length }}</p>
-        <p>Outras notícias: {{ outras_noticias|length }}</p>
-    </section>
-
     <section class="content" id="content">
         <div class="container">
             <div class="title">
@@ -40,7 +34,12 @@
                 {% for noticia in noticias_destaque %}
                 <div class="content-item">
                     <div class="content-img">
-                        <img src="{{ noticia.foto.url }}" alt="{{ noticia.titulo }}">
+                        {% if noticia.foto %}
+                            <img src="{{ noticia.foto.url }}" alt="{{ noticia.titulo }}">
+                        {% else %}
+                            <i class="fa-regular fa-newspaper"></i>
+                        {% endif %}
+                        <span>{{ noticia.titulo }}</span>
                         <span>{{ noticia.resumo }}</span>
                     </div>
                     <div class="content-title popup" onclick="infoPopup(this)">
@@ -60,16 +59,15 @@
             <div class="title">
                 <h2>OUTRAS NOTÍCIAS</h2>
                 {% for noticia in outras_noticias %}
-                <div class="content-item">
+                <div class="div-content">
                     <div class="content-img">
                         <img src="{{ noticia.foto.url }}" alt="{{ noticia.titulo }}">
+                        <a href="{% url 'news_details' noticia.pk %}">{{ noticia.titulo }}</a>
                         <span>{{ noticia.resumo }}</span>
-                    </div>
-                    <div class="content-title popup" onclick="infoPopup(this)">
                         <span class="popuptext" id="infoPopup">
                             <i>{{ noticia.data_publicacao|date:"l, d de F de Y" }}</i>
+                            <a href="{% url 'news_details' noticia.pk %}" class="content-title popup">Saiba mais</a>
                         </span>
-                        <a href="{% url 'news_details' noticia.id %}">Saiba mais</a>
                     </div>
                 </div>
                 {% endfor %}

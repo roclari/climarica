@@ -48,26 +48,32 @@
             <div class="title">
                 <h2>PRINCIPAIS NOTÍCIAS</h2>
                 <div class="content-item">
-                    <div class="content-img">
-                        <img src="css/img/mar1.jpg" alt="">
-                        <span>Fim de semana com temperaturas amenas em Maricá</span>
+                    {% for noticia in noticias_destaque %}
+                    <div class="div-content">
+                        <div class="content-img">
+                            {% if noticia.foto %}
+                                <img src="{{ noticia.foto.url }}" alt="{{ noticia.titulo }}">
+                            {% else %}
+                                <i class="fas fa-regular fa-newspaper"></i>
+                            {% endif %}
+                            <span>{{ noticia.titulo }}</span>
+                            <span class="popuptext" id="infoPopup">
+                                <i>{{ noticia.data_publicacao|date:"l, d de F de Y" }}</i>
+                                <a href="{% url 'news_details' noticia.pk %}" class="content-title popup">Saiba mais</a>
+                            </span>
+                        </div>
                     </div>
-                    <div class="content-title popup" onclick="infoPopup(this)">
-                        <span class="popuptext" id="infoPopup">
-                            <i>sexta-feira, 19 de abril de 2024.</i>
-                        </span>
-                        <a>Saiba mais</a>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
             <div class="title">
                 <h2>Meteorologia</h2>
                 <p>Confira a previsão do tempo na cidade de Maricá</p>
+                <a href="{% url 'weather' %}">Clique aqui</a>
             </div>
         <div class="div-content">
             <div class="content-item">
                 <div class="content-img">
-                    <img src="css/img/mar2.jpg" alt="">
                     <span>Título</span>
                 </div>
             </div>
