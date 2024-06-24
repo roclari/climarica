@@ -8,7 +8,6 @@ form {
 #contact-container {
     border: solid 3px gray;
     border-radius: 5px;
-    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(31, 25, 27, 0.8));
     max-width: 600px;
     margin: 60px auto;
     position: relative;
@@ -99,9 +98,9 @@ form {
 
 #contact_form_button {
     background: none;
-    border: solid 2px lightblue;
+    border: solid 2px #4695b4;
     border-radius: 5px;
-    color: lightblue;
+    color: #4695b4;
     cursor: pointer;
     display: inline-block;
     font-family: monospace;
@@ -114,6 +113,6 @@ form {
 }
 
 #contact_form_button:hover {
-    background: darkslategray;
-    color: lightblue;
+    background: lightblue;
+    color: #4695b4;
 }

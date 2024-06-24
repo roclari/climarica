@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/news.css' %}">
     <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
@@ -26,13 +27,16 @@
             </div>
         </nav>
 
-        <div class="container">
-            <h1 style="color: white;">{{ noticia.titulo }}</h1>
-            <img src="{{ noticia.foto.url }}" alt="{{ noticia.titulo }}" style="max-width: 800px;">
-            <p style="color: white;">{{ noticia.conteudo }}</p>
-            <p style="color: white;">Publicado em: {{ noticia.data_publicacao }}</p>
-            <p style="color: white;">Autor: {{ noticia.autor }}</p>
-            <p style="color: white;">Fonte: {{ noticia.fonte }}</p>
+        <div class="container news-item">
+            <br><h1 class="banner-title"
+                    style="color: gray;
+                    text-shadow: 2px 2px rgb(29, 29, 29);
+                    text-transform: uppercase;">{{ noticia.titulo }}</h1><br>
+            <img src="{{ noticia.foto.url }}" alt="{{ noticia.titulo }}" style="max-width: 800px;"><br>
+            <p>{{ noticia.conteudo }}</p><br>
+            <p>Publicado em: {{ noticia.data_publicacao }}</p><br>
+            <p>Autor: {{ noticia.autor }}</p>
+            <p>Fonte: {{ noticia.fonte }}</p>
         </div>
     </header>
 

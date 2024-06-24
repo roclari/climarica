@@ -42,8 +42,8 @@
                                 {% endif %}
                             </div>
                             <div class="card-content">
-                                <h3>{{ noticia.titulo }}</h3>
-                                <p>{{ noticia.resumo }}</p>
+                                <h3>{{ noticia.titulo }}</h3><br>
+                                <br><br><p>{{ noticia.resumo }}</p>
                                 <div class="card-title" onclick="infoPopup(this)">
                                 <span style="font-size: 12px;" class="popuptext" id="infoPopup">
                                     <i>Publicado em: {{ noticia.data_publicacao|date:"l, d F Y" }}</i>
@@ -53,6 +53,30 @@
                             </div>
                         </div>
                         {% endfor %}
+                        <h2 class="banner-title">OUTRAS NOTÍCIAS</h2>
+                        <div class="news-cards">
+                            {% for noticia in outras_noticias %}
+                            <div class="card">
+                                <div class="card-image">
+                                    {% if noticia.foto %}
+                                        <img src="{{ noticia.foto.url }}" alt="{{ noticia.titulo }}" style="border: solid 3px lightslategray;">
+                                    {% else %}
+                                        <i class="fa-regular fa-newspaper"></i>
+                                    {% endif %}
+                                </div>
+                                <div class="card-content">
+                                    <h3>{{ noticia.titulo }}</h3>
+                                    <p>{{ noticia.resumo }}</p>
+                                    <div class="card-title" onclick="infoPopup(this)">
+                                    <span style="font-size: 12px;" class="popuptext" id="infoPopup">
+                                        <i>Publicado em: {{ noticia.data_publicacao|date:"l, d F Y" }}</i>
+                                    </span>
+                                    <a href="{% url 'news_details' noticia.id %}" class="card-link">Saiba mais</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
                     </div>
                 </div>
             </div>
