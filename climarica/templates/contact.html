@@ -26,10 +26,15 @@
             </div>
         </nav>
     <div id="contact-container">
-        <h1>Comentários</h1>
-        <div class="underline">
+        <div id="success-message" class="hidden" style="padding: 30px; border: none;">
+            <p>Obrigado(a)!
+                Seu comentário foi enviado. </p>
+            <a href="{% url 'contact' %}" class="back-btn">Voltar</a>
         </div>
         <form action="mailto:larissarocha9@gmail.com" enctype="multipart/form-data" method="POST" id="contact-form">
+        <h1 style="margin-top: -30px;">Comentários</h1>
+        <div class="underline" style="margin-bottom: 50px;">
+        </div>
           <div class="contact-name">
             <label for="contact-name">
             <input type="text" placeholder="Nome" name="name" id="name_input" required>
@@ -49,10 +54,9 @@
             <label for="contact-subject">
             <select placeholder="Assunto" name="subject" id="subject_input" required>
                 {% for assunto in assuntos %}
-              <option selected>Selecione o tipo de comentário</option>
-              <option>Quero fazer uma reclamação</option>
-              <option>Quero fazer um elogio</option>
-              <option>Quero fazer uma sugestão sobre o site</option>
+              <option value="{{ assunto.0 }}" {% if form.assunto.value == assunto.0 %}selected{% endif %}>
+                  {{ assunto.1 }}
+              </option>
                 {% endfor %}
             </select>
 

@@ -6,7 +6,7 @@ form {
 }
 
 #contact-container {
-    border: solid 3px gray;
+    border: solid 2px gray;
     border-radius: 5px;
     max-width: 600px;
     margin: 60px auto;
@@ -113,6 +113,45 @@ form {
 }
 
 #contact_form_button:hover {
+    background: lightblue;
+    color: #4695b4;
+}
+
+.hidden {
+    display: none;
+}
+
+#success-message {
+    margin-top: 20px;
+    text-align: center;
+    background-color: transparent;
+    font-size: 24px;
+    padding: 20px;
+}
+
+#success-message p {
+    color: dimgray;
+    text-shadow: 1px 1px whitesmoke;
+}
+
+.back-btn {
+    margin-top: 15px;
+    background: none;
+    border: solid 2px #4695b4;
+    border-radius: 5px;
+    color: #4695b4;
+    cursor: pointer;
+    display: inline-block;
+    font-family: monospace;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;
+    padding: 10px 15px;
+    text-transform: capitalize;
+    transition: all 0.3s ease-in;
+}
+
+.back-btn:hover {
     background: lightblue;
     color: #4695b4;
 }

@@ -13,7 +13,8 @@ def about(request):
 
 
 def contact(request):
-    return render(request, 'contact.html')
+    assuntos = Contato.ASSUNTOS
+    return render(request, 'contact.html', {'assuntos': assuntos})
 
 
 def news(request):
