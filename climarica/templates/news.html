@@ -29,7 +29,7 @@
         <section class="content" id="content">
             <div class="container">
                 <div class="title">
-                    <h2>PRINCIPAIS NOTÍCIAS</h2>
+                    <h2 class="banner-title">PRINCIPAIS NOTÍCIAS</h2>
                     {% for noticia in noticias_destaque %}
                     <div class="content-item">
                         <div class="content-img">
@@ -38,12 +38,12 @@
                             {% else %}
                                 <i class="fa-regular fa-newspaper"></i>
                             {% endif %}
-                            <span>{{ noticia.titulo }}</span>
-                            <span>{{ noticia.resumo }}</span>
+                            <span>{{ noticia.titulo }}</span><br>
+                            <span>{{ noticia.resumo }}</span><br>
                         </div>
                         <div class="content-title popup" onclick="infoPopup(this)">
                             <span class="popuptext" id="infoPopup">
-                                <i>{{ noticia.data_publicacao|date:"l, d de F de Y" }}</i>
+                                <i>Publicado em: {{ noticia.data_publicacao|date:"l, d F Y" }}</i>
                             </span>
                             <a href="{% url 'news_details' noticia.id %}">Saiba mais</a>
                         </div>

@@ -111,7 +111,7 @@ header {
     font-size: 48px;
     font-family: monospace;
     line-height: 1.2;
-    text-shadow: 2px 2px gray;
+    text-shadow: 2px 2px #736b6b;
 }
 
 .banner-title span {
@@ -126,7 +126,7 @@ header {
     font-size: 20px;
     font-weight: 300;
     word-spacing: 2px;
-    text-shadow: 2px 1px rgb(29, 29, 29);
+    text-shadow: 2px 1px rgb(98, 93, 93);
     background-color: gray;
 }
 
@@ -196,6 +196,7 @@ header {
 
 .content-item {
     margin: 24px 0;
+    display: inline-grid;
 }
 
 .content-img {
@@ -291,4 +292,13 @@ header {
 @keyframes fade {
     from {opacity: 0;}
     to {opacity: 1;}
+}
+
+/* meteorologia */
+
+.weather-tab {
+    border: solid 3px red;
+    border-spacing: 10px;
+    padding: 80px;
+    margin-top: 15px;
 }

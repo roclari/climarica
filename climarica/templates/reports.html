@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/reports.css' %}">
     <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
@@ -33,7 +34,7 @@
                     <form method="POST">
                         {% csrf_token %}
                         <br><label for="boletim">Selecione uma data:</label><br>
-                        <select name="boletim" id="boletim" onchange="this.form.submit()" style="padding-left: 10px;">
+                        <select name="boletim" class="reports-list" id="boletim" onchange="this.form.submit()">
                             <option value="">--- S e l e c i o n e ---</option><br>
                             {% for boletim in boletins %}
                                 <option value="{{ boletim.id }}">{{ boletim.titulo }}</option>
@@ -41,10 +42,10 @@
                         </select>
                     </form>
                     {% if selected_boletim %}
-                        <h3>Data selecionada:<br>{{ selected_boletim.titulo }}</h3>
+                        <h3 style="margin-top: 20px;">Data selecionada:<br>{{ selected_boletim.titulo }}</h3>
                         <p>Descrição:<br>{{ selected_boletim.conteudo }}</p>
                         {% if selected_boletim.pdf %}
-                            <iframe src="{{ selected_boletim.pdf.url }}" width="600" height="780" style="border: none;"></iframe>
+                            <iframe src="{{ selected_boletim.pdf.url }}" width="600" height="780" style="border: solid 20px lightblue;"></iframe>
                             <p>Fonte:<br>{{ selected_boletim.fonte }}</p>
                         {% else %}
                             <p>Esta data não possui um boletim meteorológico disponível.</p>

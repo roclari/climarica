@@ -9,6 +9,7 @@ class Noticia(models.Model):
     conteudo = models.TextField(null=True, blank=True)
     data_publicacao = models.DateTimeField(default=timezone.now)
     autor = models.CharField(max_length=100, default='Autor', null=True, blank=True)
+    fonte = models.CharField(max_length=100, default='Fonte', null=True, blank=True)
 
     def __str__(self):
         return self.titulo
