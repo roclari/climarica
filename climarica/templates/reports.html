@@ -13,7 +13,7 @@
     <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
-    <header>
+    <header style="background-image: url('{% static 'img/bg.png' %}')">
         <nav class="navbar">
             <div class="container">
                 <div class="navbar-nav">
@@ -27,26 +27,26 @@
             </div>
         </nav>
 
-        <section class="content" id="content">
+        <section class="reports-content" id="content">
             <div class="container">
                 <div class="title">
-                    <h2>BOLETIM DE INFORMAÇÕES METEOROLÓGICAS</h2>
+                    <h2 class="banner-title">BOLETIM DE INFORMAÇÕES METEOROLÓGICAS</h2>
                     <form method="POST">
                         {% csrf_token %}
-                        <br><label for="boletim">Selecione uma data:</label><br>
+                        <br><label for="boletim" style="color: white; text-shadow: 1px 2px grey;">Selecione uma data:</label><br>
                         <select name="boletim" class="reports-list" id="boletim" onchange="this.form.submit()">
-                            <option value="">--- S e l e c i o n e ---</option><br>
+                            <option value="">[ S e l e c i o n e . . . ]</option>
                             {% for boletim in boletins %}
                                 <option value="{{ boletim.id }}">{{ boletim.titulo }}</option>
                             {% endfor %}
-                        </select>
+                        </select><br><br><hr style="color: lightblue;">
                     </form>
                     {% if selected_boletim %}
-                        <h3 style="margin-top: 20px;">Data selecionada:<br>{{ selected_boletim.titulo }}</h3>
-                        <p>Descrição:<br>{{ selected_boletim.conteudo }}</p>
+                        <p style="margin-top: 20px;"><strong>Data selecionada:</strong><br>{{ selected_boletim.titulo }}
+                        <p><strong>Descrição:</strong><br>{{ selected_boletim.conteudo }}</p>
                         {% if selected_boletim.pdf %}
-                            <iframe src="{{ selected_boletim.pdf.url }}" width="600" height="780" style="border: solid 20px lightblue;"></iframe>
-                            <p>Fonte:<br>{{ selected_boletim.fonte }}</p>
+                            <iframe src="{{ selected_boletim.pdf.url }}" width="800" height="500" style="border: solid 20px lightblue;"></iframe>
+                            <p style="font-size: 12px; color: lightgray; font-family: monospace; text-shadow: none;">Fonte:<br>{{ selected_boletim.fonte }}</p>
                         {% else %}
                             <p>Esta data não possui um boletim meteorológico disponível.</p>
                         {% endif %}

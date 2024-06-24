@@ -28,3 +28,7 @@
     color: lightblue;
     transition: 0.5s ease-in;
 }
+
+.contact-list {
+    margin: -30px;
+}

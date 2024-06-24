@@ -17,7 +17,6 @@
             <div class="container">
                 <div class="navbar-nav">
                     <a href="{% url 'index' %}" class="navbar-brand">CLIMARICÁ</a>
-{#                    <a href="{% url 'index' %}" class="navbar-brand"><img src="static/img/logo.png" alt="{% url 'index' %}" style=""></a>#}
                     <a href="{% url 'index' %}">INÍCIO</a>
                     <a href="{% url 'about' %}">SOBRE</a>
                     <a href="{% url 'news' %}">NOTÍCIAS</a>
@@ -31,7 +30,7 @@
                 <h1 class="banner-title">
                     <span>CLI</span>MARICÁ
                 </h1>
-                <p>INFORMAÇÕES SOBRE O <b style="color: lightblue;">TEMPO</b> E CLIMA NA CIDADE DE MARICÁ</p>
+                <p>INFORMAÇÕES SOBRE O TEMPO E CLIMA NA CIDADE DE MARICÁ</p>
                 <form>
                     <label for="searchbar">
                         <input type="text" id="searchbar" onkeyup="search()" class="search-input" placeholder="Pesquisar..." />
@@ -43,38 +42,34 @@
             </div>
         </div>
 
-        <section class="content" id="content">
-            <div class="container">
-                <div class="title">
-                    <h2>PRINCIPAIS NOTÍCIAS</h2>
-                    <div class="content-item">
-                        {% for noticia in noticias_destaque %}
-                        <div class="div-content">
-                            <div class="content-img">
-                                {% if noticia.foto %}
-                                    <img src="{{ noticia.foto.url }}" alt="{{ noticia.titulo }}">
-                                {% else %}
-                                    <i class="fas fa-regular fa-newspaper"></i>
-                                {% endif %}
-                                <span>{{ noticia.titulo }}</span>
-                                <span class="popuptext" id="infoPopup">
-                                    <i>{{ noticia.data_publicacao|date:"l, d de F de Y" }}</i>
-                                    <a href="{% url 'news_details' noticia.pk %}" class="content-title popup">Saiba mais</a>
-                                </span>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
+        <div class="container-items">
             <section class="content" id="content">
                 <div class="title">
-                    <h2>Meteorologia</h2>
-                    <p>Confira a previsão do tempo na cidade de Maricá</p>
-                    <a href="{% url 'weather' %}">Clique aqui</a>
+                    <div class="shortcut-cards">
+                        <div class="card">
+                            <img src="{% static 'img/logo.png' %}" alt="Notícias" class="card-image">
+                            <div class="card-content">
+                                <h3>Notícias</h3>
+                                <p>Confira as principais notícias sobre o tempo e clima.</p>
+                                <a href="{% url 'news' %}" class="card-link">
+                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="{% static 'img/logo.png' %}" alt="Meteorologia" class="card-image">
+                            <div class="card-content">
+                                <h3>Meteorologia</h3>
+                                <p>Confira a previsão do tempo na cidade de Maricá.</p>
+                                <a href="{% url 'weather' %}" class="card-link">
+                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
-            </div>
-    </section>
+        </div>
     </header>
 
 <div class="footer">

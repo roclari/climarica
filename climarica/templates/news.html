@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/news.css' %}">
     <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
@@ -30,25 +31,29 @@
             <div class="container">
                 <div class="title">
                     <h2 class="banner-title">PRINCIPAIS NOTÍCIAS</h2>
-                    {% for noticia in noticias_destaque %}
-                    <div class="content-item">
-                        <div class="content-img">
-                            {% if noticia.foto %}
-                                <img src="{{ noticia.foto.url }}" alt="{{ noticia.titulo }}">
-                            {% else %}
-                                <i class="fa-regular fa-newspaper"></i>
-                            {% endif %}
-                            <span>{{ noticia.titulo }}</span><br>
-                            <span>{{ noticia.resumo }}</span><br>
+                    <div class="news-cards">
+                        {% for noticia in noticias_destaque %}
+                        <div class="card">
+                            <div class="card-image">
+                                {% if noticia.foto %}
+                                    <img src="{{ noticia.foto.url }}" alt="{{ noticia.titulo }}" style="border: solid 3px lightslategray;">
+                                {% else %}
+                                    <i class="fa-regular fa-newspaper"></i>
+                                {% endif %}
+                            </div>
+                            <div class="card-content">
+                                <h3>{{ noticia.titulo }}</h3>
+                                <p>{{ noticia.resumo }}</p>
+                                <div class="card-title" onclick="infoPopup(this)">
+                                <span style="font-size: 12px;" class="popuptext" id="infoPopup">
+                                    <i>Publicado em: {{ noticia.data_publicacao|date:"l, d F Y" }}</i>
+                                </span>
+                                <a href="{% url 'news_details' noticia.id %}" class="card-link">Saiba mais</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="content-title popup" onclick="infoPopup(this)">
-                            <span class="popuptext" id="infoPopup">
-                                <i>Publicado em: {{ noticia.data_publicacao|date:"l, d F Y" }}</i>
-                            </span>
-                            <a href="{% url 'news_details' noticia.id %}">Saiba mais</a>
-                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
             </div>
         </section>

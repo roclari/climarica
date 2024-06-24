@@ -1,7 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+
 .reports-list {
-    padding-left: 20px;
-    background: lightblue;
-    border: outset 2px lightgray;
-    border-radius: 7px;
-    color: darkslategray;
+    padding-left: 10px;
+    background: lightgray;
+    border: solid 2px white;
+    border-radius: 3px;
+    color: grey;
+    font-family: Kanit;
+}
+
+.container p {
+    font-family: Kanit;
+    color: lightgray;
+    text-shadow: 1px 2px lightslategray;
+}
+
+.reports-content {
+    padding: 72px 0 500px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(75, 70, 70, 0.8));
 }
