@@ -351,3 +351,11 @@ header {
 .card-link:hover {
     background-color: #4695B4FF;
 }
+
+.description {
+    margin-top: 20px;
+    text-align: center;
+    background-color: rgba(60, 121, 150, 1);
+
+
+}
