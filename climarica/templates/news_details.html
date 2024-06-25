@@ -31,13 +31,14 @@
         <div class="container news-item">
             <br><h1 class="banner-title"
                     style="color: gray;
-                    text-shadow: 2px 2px rgb(29, 29, 29);
+                    text-shadow: 1px 1px rgb(29, 29, 29);
                     text-transform: uppercase;">{{ noticia.titulo }}</h1><br>
-            <img src="{{ noticia.foto.url }}" alt="{{ noticia.titulo }}" style="max-width: 800px;"><br>
-            <p>{{ noticia.conteudo }}</p><br>
-            <p>Publicado em: {{ noticia.data_publicacao }}</p><br>
-            <p>Autor: {{ noticia.autor }}</p>
-            <p>Fonte: {{ noticia.fonte }}</p>
+            <img src="{{ noticia.foto.url }}" alt="{{ noticia.titulo }}"
+                 style="max-width: 500px; align-self: center; border: solid 2px gray;"><br>
+            <p style="background-color: gainsboro;">{{ noticia.conteudo }}</p><br>
+            <p style="background-color: gainsboro; font-size: 12px;"><strong>Publicado em:</strong> {{ noticia.data_publicacao }}</p><br>
+            <p style="background-color: gainsboro; font-size: 12px;"><strong>Autor: </strong> {{ noticia.autor }}</p>
+            <p style="background-color: gainsboro; margin-bottom: 90px; font-size: 12px;"><strong>Fonte: </strong>{{ noticia.fonte }}</p>
         </div>
     </header>
 
